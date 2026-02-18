@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPR Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div id="sideMenu" class="side-menu">
+        <div class="menu-header">
+            <button id="closeBtn" class="close-btn">✕</button>
+        </div>
+        
+        <nav class="menu-container">
+            <span class="label">■ DISCOVER</span>
+            <ul class="menu-list">
+                <li>
+                    <a href="#" class="menu-link active">
+                        <span class="text-label" data-value="STORY">STORY</span> 
+                        <span class="page-num">PAGE<br>001</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link">
+                        <span class="text-label" data-value="PROTOCOL">PROTOCOL</span>
+                        <span class="page-num">PAGE<br>002</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link">
+                        <span class="text-label" data-value="JOURNAL">JOURNAL</span>
+                        <span class="page-num">PAGE<br>003</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link">
+                        <span class="text-label" data-value="MEDIA">MEDIA</span>
+                        <span class="page-num">PAGE<br>004</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link highlight">
+                        <span class="text-label" data-value="GALLERY">GALLERY</span> 
+                        <span class="page-num">PAGE<br>005</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link">
+                        <span class="text-label" data-value="ABOUT">ABOUT</span>
+                        <span class="page-num">PAGE<br>006</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="layout-wrapper">
+        <aside class="sidebar">
+            <button id="menuTrigger" class="menu-lines" aria-label="Open Menu">
+                <span></span><span></span>
+            </button>
+            <div class="scroll-indicator">
+                <div class="crosshair-icon">✧</div>
+            </div>
+            <div class="bottom-dots">...</div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="logo-box">AVIK  </div>
+                <nav class="nav-links">
+                    <a href="#" class="scramble-link" data-value="PROJECTS">PROJECTS</a>
+                    <a href="#" class="scramble-link" data-value="THE KEEP">THE KEEP</a>
+                    <a href="#" class="scramble-link" data-value="FACTIONS">FACTIONS</a>
+                    <a href="#" class="scramble-link" data-value="THE WORLD">THE WORLD</a>
+                </nav>
+                <div class="auth-link">
+                    <a href="#" class="scramble-link" data-value="SIGN IN">SIGN IN</a>
+                </div>
+            </header>
+
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="headline-container">
+                        <span class="tag">▪ 001</span>
+                        <h1>WELCOME TO THE DOMAIN OF.. <br>MY DESIGN</h1>
+                    </div>
+                    
+                    <div class="content-row">
+                        <div class="image-wrapper small-folder">
+                            <img src="https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=800&auto=format&fit=crop" alt="Environment concept">
+                        </div>
+                    </div>
+
+                    <div class="bottom-row">
+                        <div class="text-block">
+                            <p>Isolated within the New Eden safe zone, you witness humanity struggling to avoid descending into chaos.</p>
+                        </div>
+                        <div class="image-wrapper medium-folder">
+                            <span class="img-label">▪ ANIMUS CHARACTER</span>
+                            <img src="https://images.unsplash.com/photo-1542931287-023b922fa89b?q=80&w=800&auto=format&fit=crop" alt="Character concept">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                     <div class="image-wrapper large-folder">
+                        <span class="img-label">▪ TRAILER V.004</span>
+                        <img src="https://i.pinimg.com/736x/7f/14/ea/7f14ea3c2cd7374c5a3c57f9373e4daf.jpg" alt="Main hero graphic">
+                        <button class="play-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
