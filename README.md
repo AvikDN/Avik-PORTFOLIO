@@ -20,7 +20,7 @@ Features a sliding side menu, animated navigation links, and a cinematic hero la
 ## 🚀 Getting Started
 1. Clone the repo:
    ```bash
-   git clone https://github.com/your-username/Avik-portfolio.git
+   git clone https://github.com/AvikDN/Avik-PORTFOLIO.git
 ````
 
 2. Open `index.html` in your browser.
