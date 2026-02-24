@@ -49,3 +49,22 @@ scrambleElements.forEach(element => {
         }, 30);
     });
 });
+const parallax_el = document.querySelectorAll(".parallax");
+
+let xValue = 0, yValue = 0;
+
+window.addEventListener("mousemove", (e) => {
+  xValue = e.clientX - window.innerWidth / 2;
+  yValue = e.clientY - window.innerHeight / 2;
+
+  parallax_el.forEach((el) => {
+    const speedx = el.dataset.speedx || 0;
+    const speedy = el.dataset.speedy || 0;
+
+    el.style.transform = `
+      translate(-50%, -50%)
+      translateX(${ -xValue * speedx }px)
+      translateY(${  yValue * speedy }px)
+    `;
+  });
+});

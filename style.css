@@ -25,6 +25,7 @@ body {
     height: 100vh;
     padding: 2vh 2vw;
     overflow: hidden; /* Prevents scrolling on main layout */
+    
 }
 
 /* ==========================================
@@ -36,9 +37,38 @@ body {
     width: 100%;
     height: 100%;
     border: 1px solid var(--line-color);
-    background: #4a4a4a;
+    background: transparent;
+    
+}
+.layout-wrapper,
+.side-menu {
+  position: relative;
+  z-index: 5;
+}
+.parallax-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
 }
 
+.parallax-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.parallax-bg img {
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+}
 /* Sidebar */
 .sidebar {
     width: 60px;
@@ -97,20 +127,9 @@ body {
 }
 
 /* Hero Section */
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    flex: 1;
-    overflow: hidden;
-}
 
-.hero-left {
-    padding: 40px 40px 40px 60px;
-    border-right: 1px solid var(--line-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
+
 
 .headline-container { margin-bottom: 40px; }
 .tag {
@@ -150,7 +169,7 @@ body {
     border-radius: 20px;
 }
 
-.hero-right { padding: 30px; display: flex; align-items: center; justify-content: center; }
+
 .large-folder {
     width: 100%; height: 100%;
     clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%, 0 10%);
@@ -237,4 +256,134 @@ body {
 
 .menu-link:hover .page-num, .menu-link.active .page-num, .menu-link.highlight:hover .page-num {
     opacity: 1; transform: translateX(0);
+}
+.parallax {
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s cubic-bezier(0.2, 0.49, 0.32, 0.99);
+  will-change: transform;
+}
+
+.parallax.bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120vw;
+    height: 100vh;
+    object-fit: cover;
+    /* shows FULL image */
+    
+    z-index: 1;
+}
+
+.parallax.b1 {
+
+    width: 350px;
+
+    position: absolute;
+
+    top: calc(50% + 230px);
+    left: calc(50% - 820px);
+
+    
+
+    z-index: 4;
+}
+
+.parallax.b2 {
+
+    width: 580px;
+
+    position: absolute;
+
+    top: calc(50% + 190px);
+    left: calc(50% - 620px);
+
+    
+
+    z-index: 3;
+}
+
+.parallax.b31 {
+
+    width: 280px;
+
+    position: absolute;
+
+    top: calc(40% + 340px);
+    left: calc(50% - 10px);
+
+    
+
+    z-index:7;
+}
+
+.parallax.b3 {
+
+    width: 280px;
+
+    position: absolute;
+
+    top: calc(40% + 480px);
+    left: calc(50% - 150px);
+
+    
+
+    z-index: 5;
+}
+
+.parallax.b4 {
+
+    width: 330px;
+
+    position: absolute;
+
+    top: calc(50% + 130px);
+    left: calc(50% + 350px);
+
+    
+
+    z-index: 6;
+}
+
+.parallax.b5 {
+
+    width: 480px;
+
+    position: absolute;
+
+    top: calc(50% + 200px);
+    left: calc(50% + 870px);
+
+    
+
+    z-index: 7;
+}
+
+.parallax.text {
+
+    width: 1080px;
+
+    position: absolute;
+text-align: center;
+    top: calc(30% + 20px);
+    left: calc(50% - 280px);
+
+   pointer-events: auto;
+
+    z-index: 2;
+}
+
+
+/* Text layer positioning */
+.vignette {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0)65%, rgba(0, 0, 0, 0.8)
+    );
+
 }
