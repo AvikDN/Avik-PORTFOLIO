@@ -1,114 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KPR Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AVIK Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://sets.hugeicons.com/YOUR-SET-ID.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="parallax-scene">
-    <div class="vignette"></div>
-    <img src="Img/background.png" data-speedx="0.05" data-speedy="0.01" class="parallax bg" alt="Background">
 
-    <img src="Img/buiild1.png" data-speedx="0.02" data-speedy="0.08" class="parallax b1" alt="building 1">
-    <img src="Img/buiild2.png" data-speedx="0.1" data-speedy="0.08" class="parallax b2" alt="building 2">
-    <img src="Img/buiild3.1.png" data-speedx="0.08" data-speedy="0.07" class="parallax b31" alt="building 31">
-    <img src="Img/buiild3.png" data-speedx="0.09" data-speedy="0.06" class="parallax b3" alt="building 3">
-  
-    <img src="Img/PORTFOLIO.png" data-speedx="0.08" data-speedy="0.05" class="parallax text" alt="TEXT">
-    <img src="Img/buiild4.png" data-speedx="0.08" data-speedy="0.03" class="parallax b4" alt="building 4">
-    <img src="Img/buiild5.png" data-speedx="0.1" data-speedy="0.01" class="parallax b5" alt="building 5">
+  <!-- PAGE 1: HERO VIEWPORT (SCROLLS AWAY) -->
+  <div class="hero-viewport">
+      <section class="parallax-scene">
+        <div class="vignette"></div>
+        <img src="Img/background.png" data-speedx="0.05" data-speedy="0.01" class="parallax bg" alt="bg">
+        <img src="Img/buiild1.png" data-speedx="0.02" data-speedy="0.08" class="parallax b1" alt="building1">
+        <img src="Img/buiild2.png" data-speedx="0.1" data-speedy="0.08" class="parallax b2" alt="building2">
+        <img src="Img/buiild3.1.png" data-speedx="0.08" data-speedy="0.07" class="parallax b31" alt="building31">
+        <img src="Img/buiild3.png" data-speedx="0.09" data-speedy="0.06" class="parallax b3" alt="building3">
+        <img src="Img/PORTFOLIO.png" data-speedx="0.08" data-speedy="0.05" class="parallax text" alt="building4">
+        <img src="Img/buiild4.png" data-speedx="0.08" data-speedy="0.03" class="parallax b4" alt="building5">
+        <img src="Img/buiild5.png" data-speedx="0.1" data-speedy="0.01" class="parallax b5" alt="building6">
+      </section>
 
-
-  </div>
-<div class="layout-wrapper">
-    <div id="sideMenu" class="side-menu">
-        <div class="menu-header">
-            <button id="closeBtn" class="close-btn">✕</button>
-        </div>
-        
-        <nav class="menu-container">
-            <span class="label">■ DISCOVER</span>
-            <ul class="menu-list">
-                <li>
-                    <a href="#" class="menu-link active">
-                        <span class="text-label" data-value="STORY">STORY</span> 
-                        <span class="page-num">PAGE<br>001</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="menu-link">
-                        <span class="text-label" data-value="PROTOCOL">PROTOCOL</span>
-                        <span class="page-num">PAGE<br>002</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="menu-link">
-                        <span class="text-label" data-value="JOURNAL">JOURNAL</span>
-                        <span class="page-num">PAGE<br>003</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="menu-link">
-                        <span class="text-label" data-value="MEDIA">MEDIA</span>
-                        <span class="page-num">PAGE<br>004</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="menu-link highlight">
-                        <span class="text-label" data-value="GALLERY">GALLERY</span> 
-                        <span class="page-num">PAGE<br>005</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="menu-link">
-                        <span class="text-label" data-value="ABOUT">ABOUT</span>
-                        <span class="page-num">PAGE<br>006</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-
-    <div class="layout-wrapper">
+      <div class="layout-wrapper">
         <aside class="sidebar">
-            <button id="menuTrigger" class="menu-lines" aria-label="Open Menu">
-                <span></span><span></span>
-            </button>
-            <div class="scroll-indicator">
-                <div class="crosshair-icon">✧</div>
-            </div>
-            <div class="bottom-dots">...</div>
+          <button id="menuTrigger" class="menu-lines"><span></span><span></span></button>
+          <div class="scroll-indicator"><div class="crosshair-icon">✧</div></div>
+          <div class="bottom-dots">...</div>
         </aside>
 
         <main class="main-content">
-            <header class="top-nav">
-                <div class="logo-box">AVIK  </div>
-                <nav class="nav-links">
-                    <a href="#" class="scramble-link" data-value="PROJECTS">PROJECTS</a>
-                    <a href="#" class="scramble-link" data-value="THE KEEP">THE KEEP</a>
-                    <a href="#" class="scramble-link" data-value="FACTIONS">FACTIONS</a>
-                    <a href="#" class="scramble-link" data-value="THE WORLD">THE WORLD</a>
-                </nav>
-                <div class="auth-link">
-                    <a href="#" class="scramble-link" data-value="SIGN IN">SIGN IN</a>
-                </div>
-            </header>
-
-            <div class="hero-grid">
-                
-
-                
-                </div>
-            </div>
+          <header class="top-nav">
+            <div class="logo-box">AVIK</div>
+            <nav class="nav-links">
+              <a href="#" class="scramble-link" data-value="PROJECTS">PROJECTS</a>
+              <a href="#" class="scramble-link" data-value="THE KEEP">THE KEEP</a>
+              <a href="#" class="scramble-link" data-value="FACTIONS">FACTIONS</a>
+              <a href="#" class="scramble-link" data-value="THE WORLD">THE WORLD</a>
+            </nav>
+            <button class="aboutbtn"><span>ABOUT</span></button>
+          </header>
+          <div class="flex-1 flex items-center justify-center pointer-events-none">
+              <p class="text-black font-mono opacity-30 text-xs tracking-widest">SCROLL TO SYSTEM_INIT</p>
+          </div>
         </main>
+      </div>
+  </div>
+  <!-- SLIDE-OUT MENU (FIXED) -->
+  <div id="sideMenu" class="side-menu">
+    <div class="menu-header">
+      <button id="closeBtn" class="close-btn">✕</button>
+    </div>
+    <nav class="menu-container">
+      <span class="label">■ DISCOVER</span>
+      <ul class="menu-list">
+        <li><a href="#" class="menu-link active"><span class="text-label" data-value="HOME">HOME</span><span class="page-num">PAGE<br>001</span></a></li>
+        <li><a href="#" class="menu-link"><span class="text-label" data-value="INTRO">INTRO</span><span class="page-num">PAGE<br>002</span></a></li>
+        <li><a href="#" class="menu-link"><span class="text-label" data-value="SKILLS">SKILLS</span><span class="page-num">PAGE<br>003</span></a></li>
+        <li><a href="#" class="menu-link"><span class="text-label" data-value="PROJECTS">PROJECTS</span><span class="page-num">PAGE<br>004</span></a></li>
+        <li><a href="#" class="menu-link highlight"><span class="text-label" data-value="GALLERY">GALLERY</span><span class="page-num">PAGE<br>005</span></a></li>
+        <li><a href="#" class="menu-link"><span class="text-label" data-value="ABOUT">ABOUT</span><span class="page-num">PAGE<br>006</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- NEXT SECTION -->
+  <!-- PAGE 2: MYSELF SECTION -->
+<section class="myself-section">
+    <h2 class="section-title">MYSHELF</h2>
+    
+    <div class="shape-container">
+        <div class="shape-content">
+            
+            <div class="left-col">
+              <h1>Hello I'm</h1>
+<h2 id="avik-name">
+    <span class="name-av"><span class="fly-a">A</span><span class="fly-v">V</span></span><span class="name-ik"><span class="fly-i">I</span><span class="fly-k">K.</span></span>
+</h2>
+               
+       <p id="glitch-bio" style="opacity: 0;"><b class="name-Designer">I am a Designer.</b>
+        
+        <br>Always want to create something new.
+        I craft interactive web and graphics experiences where raw creativity meets structured logic.
+        I don't just design interfaces,I build digital worlds.<span class="blinking-cursor">__</span>
+       </p>
+                <div class="mt-8 flex gap-4">
+    <div class="cyber-status-badge">
+        
+       <img 
+    id="status-apng"
+    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+    data-src="Img/wired-outline-680-it-developer-in-reveal.apng" 
+    alt="System Status" 
+    class="cyber-apng">
+
+        <div class="status-text">
+            <span class="text-white font-bold">HIRE Me</span> <br>
+            SYS: ONLINE<span class="blinking-cursor">_</span>
+        </div>
+        
     </div>
 </div>
-    <script src="script.js"></script>
+            </div>
+
+           <div class="right-col">
+    <div class="hero-border-wrap">
+        <div class="hero-inner">
+            <div class="text-center font-mono">
+              
+         <img src="Img/Profile carde.png" alt="Profile" class="hero-img parallax" data-speedx="0.03" data-speedy="0.03">
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <img src="Img/04 icon.png" alt="Corner Graphic" class="corner-graphic">
+</section>
+
+  <!-- SVG CLIP PATH DEFINITION -->
+<svg width="0" height="0" style="position:absolute;">
+  <defs>
+    <clipPath id="folder-clip" clipPathUnits="objectBoundingBox">
+      <path d="M 0,0.06 Q 0,0 0.04,0 L 0.1,0 C 0.14,0 0.14,0.16 0.18,0.16 L 0.96,0.16 Q 1,0.16 1,0.22 L 1,0.94 Q 1,1 0.96,1 L 0.8,1 C 0.76,1 0.76,0.88 0.72,0.88 L 0.28,0.88 C 0.24,0.88 0.24,1 0.2,1 L 0.04,1 Q 0,1 0,0.94 Z" />
+    </clipPath>
+
+    <clipPath id="creative-room-mask" clipPathUnits="objectBoundingBox">
+      <path d="M 0.03, 0 L 0.97, 0 Q 1, 0 1, 0.05 L 1, 0.76 Q 1, 0.80 0.96, 0.80 L 0.89, 0.80 Q 0.85, 0.80 0.85, 0.85 L 0.85, 0.95 Q 0.85, 1 0.82, 1 L 0.03, 1 Q 0, 1 0, 0.95 L 0, 0.05 Q 0, 0 0.03, 0 Z" />
+    </clipPath>
+  </defs>
+</svg>
+
+  <section class="video-section">
+    
+  <!-- ADD THIS BLOCK -->
+  <div class="reveal-bars" id="revealBars">
+    <div class="bar"><div class="chevrons">∨<br>∨<br>∨<br>∨<br>∨<br>∨</div></div>
+    <div class="bar"><div class="chevrons">∨<br>∨<br>∨<br>∨<br>∨<br>∨<br>∨</div></div>
+    <div class="bar"><div class="chevrons">∨<br>∨<br>∨<br>∨<br>∨<br>∨<br>∨<br>∨</div></div>
+    <div class="bar"><div class="chevrons">∨<br>∨<br>∨<br>∨<br>∨<br>∨<br>∨</div></div>
+    <div class="bar"><div class="chevrons">∨<br>∨<br>∨<br>∨<br>∨<br>∨</div></div>
+  </div>
+  <!-- YOUR EXISTING CONTENT BELOW — NO CHANGES -->
+ 
+    <div class="video-shape-wrapper">
+      
+        <video autoplay loop muted playsinline class="shape-video">
+            <source src="Img/Video Project.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay">
+            <h3 class="overlay-title">Welcome to <div><h2>My creative room</h2></div></h3>
+            <p class="overlay-text">Take a nap.</p>
+            
+        </div>
+    </div>
+</section>
+
+<section class="skills-section" id="skills">
+
+    <div class="skull-bg"></div>
+
+    <div class="caution-tape-wrapper top-tape">
+        <div class="tape-track">
+            <div class="tape-content">
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+            </div>
+            <div class="tape-content" aria-hidden="true">
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="caution-tape-wrapper bottom-tape">
+        <div class="tape-track">
+            <div class="tape-content">
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+            </div>
+            <div class="tape-content" aria-hidden="true">
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+                <span>MY Skills . Which I Mastered...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-overlay"></div>
+
+    <header class="section-header">
+      <h2 class="cyber-title">SYSTEM_SKILLS<span class="blinking-cursor">_</span></h2>
+      <p class="section-subtitle font-mono text-white/70">Initializing ...</p>
+    </header>
+
+    <div class="skills-content-wrapper">
+      
+      <div class="skills-column">
+        
+        <div class="skill-category">
+          <h3 class="category-label font-mono text-white/60"> FRONTEND_ENGINEERING</h3>
+          <div class="hex-grid">
+            <div class="skill-item data-node" data-level="95%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-html5 skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">HTML</span></div>
+            </div>
+            <div class="skill-item data-node" data-level="80%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-css3-alt skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">CSS</span></div>
+            </div>
+            <div class="skill-item data-node" data-level="90%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-js-square skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">JavaScript</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-label font-mono text-white/60"> BACKEND_ENGINEERING</h3>
+          <div class="hex-grid">
+            <div class="skill-item data-node" data-level="85%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-node skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">Node.js</span></div>
+            </div>
+            <div class="skill-item data-node" data-level="75%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fas fa-database skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">SQL</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="robot-wrapper">
+        <div class="robot-face">
+          <div class="x-mark">+</div>
+          <div class="eyes-container">
+            <div class="eye">
+              <div class="eyelid" id="lid-left"></div>
+              <div class="pupil" id="pupil-left"></div>
+            </div>
+            <div class="eye">
+              <div class="eyelid" id="lid-right"></div>
+              <div class="pupil" id="pupil-right"></div>
+            </div>
+          </div>
+          <div class="mouth-container">
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+          </div>
+        </div>
+      </div>
+      <div class="skills-column align-right">
+        
+         <div class="skill-category">
+          <h3 class="category-label font-mono text-white/60"> DESIGN_STACK_&_TOOLS</h3>
+          <div class="hex-grid">
+            <div class="skill-item data-node" data-level="90%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-figma skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">Figma</span></div>
+            </div>
+            <div class="skill-item data-node" data-level="70%">
+              <div class="hex-cell"><div class="hex-inner"><img src="img/after-effects.png" class="skill-icon custom-img-icon" alt="Adobe CC"></div></div>
+              <div class="skill-details"><span class="skill-name">Adobe CC</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3 class="category-label font-mono text-white/60"> FUTURE_SKILLS</h3>
+          <div class="hex-grid">
+            </div>
+        </div>
+
+      </div>
+      </div>
+</section>
+
+
+<section class="showcase-section" id="design-projects">
+  
+    <h1 class="bg-huge-title">PROJECTS</h1>
+
+    <div class="showcase-container">
+      <div class="showcase-vignette"></div>
+      <img src="Img/adventure time.com_wallpaper.jpg" alt="Showcase Background" class="showcase-bg" id="showcase-bg">
+      
+      <div class="showcase-overlay"></div> 
+
+      <div class="showcase-content">
+        
+        <div class="project-info">
+          <div class="logo-placeholder">PROJECTS</div>
+          <h2 class="project-title" id="project-title">CYBER NEON</h2>
+          <p class="project-desc" id="project-desc">A deep dive into neo-noir aesthetics and interactive web environments. Exploring the intersection of design and immersive scrolling.</p>
+          
+          <div class="project-meta">
+            <div class="genre-box">
+              <span class="genre-label">CATEGORY:</span>
+              <strong class="genre-value" id="project-category">WEB DESIGN</strong>
+            </div>
+            
+          </div>
+        </div>
+
+        <div class="cards-row">
+          
+          <div class="showcase-card active" 
+               data-bg="Img/adventure time.com_wallpaper.jpg" 
+               data-title="CYBER NEON" 
+               data-category="GRAPHICS DESIGN"
+               data-desc="A deep dive into neo-noir aesthetics and interactive web environments. Exploring the intersection of design and immersive scrolling.">
+            <img src="Img/adventure time.com_wallpaper.jpg" alt="Project 1">
+          </div>
+
+          <div class="showcase-card" 
+               data-bg="Img/sky.com_wallpaper.jpg" 
+               data-title="PIXEL SCAPES" 
+               data-category="MOTION ART"
+               data-desc="Retro-inspired pixel art environments featuring cyberpunk cityscapes and isometric room designs.">
+            <img src="Img/sky.com_wallpaper.jpg" alt="Project 2">
+          </div>
+
+          <div class="showcase-card" 
+               data-bg="Img/Screenshot 2026-02-19 024230.png" 
+               data-title="SYSTEM INIT" 
+               data-category="UI/UX"
+               data-desc="Custom interface design featuring complex clip-paths, glassmorphism, and dynamic JavaScript interactions.">
+            <img src="Img/Screenshot 2026-02-19 024230.png" alt="Project 3">
+          </div>
+
+        </div>
+
+        <div class="bottom-actions">
+          
+          <button class="view-all-btn">VIEW ALL DESIGNS</button>
+        </div>
+
+      </div>
+    </div>
+</section>
+<section class="graphics-bento-section">
+    <div class="bento-grid">
+        
+        <div class="bento-item bento-1">
+            <p>"Transforming complex ideas into striking visual narratives Branding typography and digital art</p>
+        </div>
+
+        <div class="bento-item bento-2">
+            <div class="bento-2-inner">
+                <h2 class="glitch-title">GRAPHICS DESIGN</h2>
+            </div>
+        </div>
+
+       <div class="bento-item bento-3">
+            <img src="Img/Zoro.jpg" alt="Graphics Project 1" class="bento-img">
+        </div>
+
+        <div class="bento-item bento-4">
+            <img src="Img/sky.com_wallpaper.jpg" alt="Graphics Project 2" class="bento-img">
+        </div>
+
+        <div class="bento-item bento-5">
+            <img src="Img/adventure time.com_wallpaper.jpg" alt="Graphics Project 3" class="bento-img">
+        </div>
+
+        <div class="bento-item bento-6">
+            <svg class="bento-arrow" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+            <h2>MORE</h2>
+        </div>
+
+    </div>
+</section>
+
+<section class="motion-bento-section">
+    <div class="bento-grid-motion">
+
+        <div class="motion-item motion-1">
+            <h2 class="glitch-title">MOTION GRAPHICS</h2>
+        </div>
+        <div class="motion-item motion-2">
+            <video src="Vids/Circle Rotation.mp4" autoplay loop muted playsinline class="bento-video"></video>
+        </div>
+
+        <div class="motion-item motion-3">
+            <video src="Vids/3d_Character.mp4" autoplay loop muted playsinline class="bento-video"></video>
+        </div>
+
+        <div class="motion-item motion-4">
+            <h2>MORE</h2>
+            <svg class="bento-arrow-motion" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </div>
+
+        <div class="motion-item motion-5">
+            <video src="Vids/Dynamic Text Animation.mp4" autoplay loop muted playsinline class="bento-video"></video>
+        </div>
+
+        <div class="motion-item motion-6">
+            <p>Every motion tells a better perspective In your work_ Dynamic storytelling through animation_ Elevating static designs with fluid purposeful motion</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="uiux-bento-section">
+    <div class="bento-grid-uiux">
+
+        <div class="uiux-item uiux-1">
+            <h2 class="glitch-title">UI / UX</h2>
+        </div>
+
+        <div class="uiux-item uiux-2">
+            <img src="Img/cyberpunk web.png" alt="UI/UX Project 1" class="bento-img">
+        </div>
+
+        <div class="uiux-item uiux-3">
+            <img src="Img/Screenshot 2026-02-19 024230.png" alt="UI/UX Project 2" class="bento-img">
+        </div>
+
+        <div class="uiux-item uiux-4">
+            <p>GOT The Best UI/UX Designing user-centric experiences_ Bridging the gap between striking aesthetic form and pure function</p>
+        </div>
+
+        <div class="uiux-item uiux-5">
+            <h2>MORE</h2>
+            <svg class="bento-arrow-uiux" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </div>
+
+    </div>
+</section>
+  <script src="script.js"></script>
 </body>
 </html>
