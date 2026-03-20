@@ -10,12 +10,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&display=swap" rel="stylesheet">
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "2bO75YE6Sg9z8MQEx",
+      });
+   })();
+</script>
+
 </head>
 <body>
 
   <!-- PAGE 1: HERO VIEWPORT (SCROLLS AWAY) -->
   <div class="hero-viewport">
-      <section class="parallax-scene">
+      <section class="parallax-scene" id="home">
         <div class="vignette"></div>
         <img src="Img/background.png" data-speedx="0.05" data-speedy="0.01" class="parallax bg" alt="bg">
         <img src="Img/buiild1.png" data-speedx="0.02" data-speedy="0.08" class="parallax b1" alt="building1">
@@ -29,7 +41,18 @@
 
       <div class="layout-wrapper">
         <aside class="sidebar">
-          <button id="menuTrigger" class="menu-lines"><span></span><span></span></button>
+          <nav class="global-sticky-nav">
+          <button id="menuTrigger" aria-label="Open Menu">
+          <svg class="target-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+             <path class="bracket tl" d="M 11 5 L 7 5 C 5.3 5 4 6.3 4 8 L 4 12" />
+             <path class="bracket tr" d="M 21 5 L 25 5 C 26.7 5 28 6.3 28 8 L 28 12" />
+             <path class="bracket bl" d="M 11 27 L 7 27 C 5.3 27 4 25.7 4 24 L 4 20" />
+             <path class="bracket br" d="M 21 27 L 25 27 C 26.7 27 28 25.7 28 24 L 28 20" />
+             
+             <path class="center-cross" d="M 11 16 L 21 16 M 16 11 L 16 21" />
+          </svg>
+      </button>
+      </nav>
           <div class="scroll-indicator"><div class="crosshair-icon">✧</div></div>
           <div class="bottom-dots">...</div>
         </aside>
@@ -38,12 +61,11 @@
           <header class="top-nav">
             <div class="logo-box">AVIK</div>
             <nav class="nav-links">
-              <a href="#" class="scramble-link" data-value="PROJECTS">PROJECTS</a>
-              <a href="#" class="scramble-link" data-value="THE KEEP">THE KEEP</a>
-              <a href="#" class="scramble-link" data-value="FACTIONS">FACTIONS</a>
-              <a href="#" class="scramble-link" data-value="THE WORLD">THE WORLD</a>
+
             </nav>
-            <button class="aboutbtn"><span>ABOUT</span></button>
+          <button class="hire-btn" onclick="document.getElementById('bottom-target').scrollIntoView({behavior: 'smooth'});">
+    HIRE
+</button>
           </header>
           <div class="flex-1 flex items-center justify-center pointer-events-none">
               <p class="text-black font-mono opacity-30 text-xs tracking-widest">SCROLL TO SYSTEM_INIT</p>
@@ -59,18 +81,23 @@
     <nav class="menu-container">
       <span class="label">■ DISCOVER</span>
       <ul class="menu-list">
-        <li><a href="#" class="menu-link active"><span class="text-label" data-value="HOME">HOME</span><span class="page-num">PAGE<br>001</span></a></li>
-        <li><a href="#" class="menu-link"><span class="text-label" data-value="INTRO">INTRO</span><span class="page-num">PAGE<br>002</span></a></li>
-        <li><a href="#" class="menu-link"><span class="text-label" data-value="SKILLS">SKILLS</span><span class="page-num">PAGE<br>003</span></a></li>
-        <li><a href="#" class="menu-link"><span class="text-label" data-value="PROJECTS">PROJECTS</span><span class="page-num">PAGE<br>004</span></a></li>
-        <li><a href="#" class="menu-link highlight"><span class="text-label" data-value="GALLERY">GALLERY</span><span class="page-num">PAGE<br>005</span></a></li>
-        <li><a href="#" class="menu-link"><span class="text-label" data-value="ABOUT">ABOUT</span><span class="page-num">PAGE<br>006</span></a></li>
+        <li><a href="#home" class="menu-link"><span class="text-label" data-value="HOME">HOME</span><span class="page-num">PAGE<br>001</span></a></li>
+        <li><a href="#about" class="menu-link"><span class="text-label" data-value="ABOUT">ABOUT</span><span class="page-num">PAGE<br>002</span></a></li>
+        <li><a href="#skills" class="menu-link"><span class="text-label" data-value="SKILLS">SKILLS</span><span class="page-num">PAGE<br>003</span></a></li>
+        <li><a href="#design-projects" class="menu-link"><span class="text-label" data-value="PROJECTS">PROJECTS</span><span class="page-num">PAGE<br>004</span></a></li>
+        <li>
+    <a href="#bottom-target" class="menu-link">
+        <span class="text-label" data-value="CONTACT">CONTACT</span>
+        <span class="page-num">PAGE<br>005</span>
+    </a>
+</li>
+        
       </ul>
     </nav>
   </div>
   <!-- NEXT SECTION -->
   <!-- PAGE 2: MYSELF SECTION -->
-<section class="myself-section">
+<section class="myself-section" id="about">
     <h2 class="section-title">MYSHELF</h2>
     
     <div class="shape-container">
@@ -225,6 +252,10 @@
               <div class="hex-cell"><div class="hex-inner"><i class="fab fa-js-square skill-icon"></i></div></div>
               <div class="skill-details"><span class="skill-name">JavaScript</span></div>
             </div>
+            <div class="skill-item data-node" data-level="85%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-wordpress skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">WordPress</span></div>
+            </div>
           </div>
         </div>
 
@@ -237,11 +268,50 @@
             </div>
             <div class="skill-item data-node" data-level="75%">
               <div class="hex-cell"><div class="hex-inner"><i class="fas fa-database skill-icon"></i></div></div>
-              <div class="skill-details"><span class="skill-name">SQL</span></div>
+              <div class="skill-details"><span class="skill-name">My SQL</span></div>
+            </div>
+            <div class="skill-item data-node" data-level="80%">
+              <div class="hex-cell"><div class="hex-inner">
+                <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M12 2C12 2 7 6 7 12c0 4 3 8 5 10c2-2 5-6 5-10c0-6-5-10-5-10Z" />
+                  <path d="M12 2v20" />
+                </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">MongoDB</span></div>
             </div>
           </div>
         </div>
+<div class="skill-category">
+          <h3 class="category-label font-mono text-white/60"> CORE_PROGRAMMING</h3>
+          <div class="hex-grid">
+            
+            <div class="skill-item data-node" data-level="80%">
+              <div class="hex-cell"><div class="hex-inner"><i class="fab fa-java skill-icon"></i></div></div>
+              <div class="skill-details"><span class="skill-name">Java</span></div>
+            </div>
+            
+            <div class="skill-item data-node" data-level="85%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M10 8a4 4 0 1 0 0 8 M14 12h4 M16 10v4 M19 12h4 M21 10v4"/>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">C++</span></div>
+            </div>
+            
+            <div class="skill-item data-node" data-level="75%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M16 8a6 6 0 1 0 0 10"/>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">C</span></div>
+            </div>
+            
+           
 
+          </div>
+        </div>
       </div>
       <div class="robot-wrapper">
         <div class="robot-face">
@@ -266,28 +336,70 @@
       </div>
       <div class="skills-column align-right">
         
-         <div class="skill-category">
+<div class="skill-category">
           <h3 class="category-label font-mono text-white/60"> DESIGN_STACK_&_TOOLS</h3>
           <div class="hex-grid">
+            
             <div class="skill-item data-node" data-level="90%">
               <div class="hex-cell"><div class="hex-inner"><i class="fab fa-figma skill-icon"></i></div></div>
               <div class="skill-details"><span class="skill-name">Figma</span></div>
             </div>
-            <div class="skill-item data-node" data-level="70%">
-              <div class="hex-cell"><div class="hex-inner"><img src="img/after-effects.png" class="skill-icon custom-img-icon" alt="Adobe CC"></div></div>
-              <div class="skill-details"><span class="skill-name">Adobe CC</span></div>
+            
+            <div class="skill-item data-node" data-level="90%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                    <text x="12" y="16.5" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Ps</text>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">Photoshop</span></div>
             </div>
+            
+            <div class="skill-item data-node" data-level="85%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                    <text x="12" y="16.5" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Ai</text>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">Illustrator</span></div>
+            </div>
+            
+            <div class="skill-item data-node" data-level="80%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                    <text x="12" y="16.5" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Lr</text>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">Lightroom</span></div>
+            </div>
+            
+            <div class="skill-item data-node" data-level="75%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                    <text x="12" y="16.5" font-size="11" font-family="sans-serif" font-weight="bold" text-anchor="middle">Ae</text>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">After Effects</span></div>
+            </div>
+            
+            <div class="skill-item data-node" data-level="70%">
+              <div class="hex-cell"><div class="hex-inner">
+                 <svg class="skill-svg" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                    <path style="fill: currentColor !important; stroke: none !important;" d="M 25 2 C 12.309288 2 2 12.309297 2 25 C 2 37.690703 12.309288 48 25 48 C 37.690712 48 48 37.690703 48 25 C 48 12.309297 37.690712 2 25 2 z M 25 4 C 36.609833 4 46 13.390175 46 25 C 46 36.609825 36.609833 46 25 46 C 13.390167 46 4 36.609825 4 25 C 4 13.390175 13.390167 4 25 4 z M 25 8 C 21.14 8 18 10.968234 18 14.615234 C 18 18.161234 21.284422 22.183625 24.357422 24.765625 C 24.543422 24.921625 24.771 24.998047 25 24.998047 C 25.229 24.998047 25.457578 24.920672 25.642578 24.763672 C 28.715578 22.181672 32 18.161234 32 14.615234 C 32 10.969234 28.859 8.001 25 8 z M 15.429688 25.007812 C 13.863723 25.048535 12.407391 25.347219 11.244141 26.011719 C 9.7551406 26.861719 8.6874219 28.265937 8.2324219 29.960938 C 7.7494219 31.760937 8.0261875 33.743391 8.9921875 35.400391 C 10.330187 37.696391 12.721094 38.998047 15.121094 38.998047 C 16.214094 38.998047 17.309594 38.728203 18.308594 38.158203 C 21.414594 36.381203 23.276375 31.519547 23.984375 27.560547 C 24.070375 27.081547 23.798844 26.608359 23.339844 26.443359 C 20.957344 25.587109 18.039629 24.939941 15.429688 25.007812 z M 34.572266 25.007812 C 31.962529 24.939941 29.045234 25.587109 26.662109 26.443359 C 26.203109 26.608359 25.929625 27.081547 26.015625 27.560547 C 26.722625 31.519547 28.585406 36.383203 31.691406 38.158203 C 32.689406 38.728203 33.784906 38.998047 34.878906 38.998047 C 37.277906 38.998047 39.668766 37.697391 41.009766 35.400391 C 41.975766 33.743391 42.251531 31.761937 41.769531 29.960938 C 41.315531 28.264938 40.244859 26.862719 38.755859 26.011719 C 37.592609 25.347219 36.138107 25.048535 34.572266 25.007812 z"></path>
+                 </svg>
+              </div></div>
+              <div class="skill-details"><span class="skill-name">DaVinci</span></div>
+            </div>
+            
           </div>
         </div>
 
-        <div class="skill-category">
-          <h3 class="category-label font-mono text-white/60"> FUTURE_SKILLS</h3>
-          <div class="hex-grid">
-            </div>
-        </div>
-
       </div>
       </div>
+      
 </section>
 
 
@@ -304,7 +416,7 @@
       <div class="showcase-content">
         
         <div class="project-info">
-          <div class="logo-placeholder">PROJECTS</div>
+          
           <h2 class="project-title" id="project-title">CYBER NEON</h2>
           <p class="project-desc" id="project-desc">A deep dive into neo-noir aesthetics and interactive web environments. Exploring the intersection of design and immersive scrolling.</p>
           
@@ -321,24 +433,24 @@
           
           <div class="showcase-card active" 
                data-bg="Img/adventure time.com_wallpaper.jpg" 
-               data-title="CYBER NEON" 
-               data-category="GRAPHICS DESIGN"
+               data-title="GRAPHICS DESIGN" 
+               data-category="poster"
                data-desc="A deep dive into neo-noir aesthetics and interactive web environments. Exploring the intersection of design and immersive scrolling.">
             <img src="Img/adventure time.com_wallpaper.jpg" alt="Project 1">
           </div>
 
           <div class="showcase-card" 
                data-bg="Img/sky.com_wallpaper.jpg" 
-               data-title="PIXEL SCAPES" 
-               data-category="MOTION ART"
+               data-title="MOTION GRAPHICS" 
+               data-category="3d_Character"
                data-desc="Retro-inspired pixel art environments featuring cyberpunk cityscapes and isometric room designs.">
             <img src="Img/sky.com_wallpaper.jpg" alt="Project 2">
           </div>
 
           <div class="showcase-card" 
                data-bg="Img/Screenshot 2026-02-19 024230.png" 
-               data-title="SYSTEM INIT" 
-               data-category="UI/UX"
+               data-title="UI/UX" 
+               data-category="SYSTEM INIT"
                data-desc="Custom interface design featuring complex clip-paths, glassmorphism, and dynamic JavaScript interactions.">
             <img src="Img/Screenshot 2026-02-19 024230.png" alt="Project 3">
           </div>
@@ -451,6 +563,68 @@
 
     </div>
 </section>
-  <script src="script.js"></script>
+
+<section class="contact-section" id="contact">
+    <div class="checker-accent top-left-checker"></div>
+    <div class="checker-accent bottom-right-checker"></div>
+
+    <div class="contact-bg-green"></div>
+
+    <div class="contact-form-container">
+        
+        <div class="folder-tab">
+            <h3>GET IN TOUCH</h3>
+        </div>
+        
+<form id="contact-form" class="folder-body" onsubmit="sendmail(event)">
+        
+        <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <input type="text" id="name" name="user_name" class="tech-input" placeholder="NAME :" required>
+        </div>
+
+        <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="email" id="email" name="user_email" class="tech-input" placeholder="EMAIL :" required>
+        </div>
+
+        <div class="input-wrapper">
+            <svg class="input-icon msg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <textarea id="message" name="message" class="tech-input tech-textarea" placeholder="MESSAGE :" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submit-btn">SEND</button>
+        
+    </form>
+            
+            
+        </div>
+    </div>
+
+<div class="social-footer">
+        <span class="social-label">@Social:</span>
+        <div class="social-icons">
+            <a href="https://discordapp.com/users/1024632667939024896" target="_blank"><i class="fa-brands fa-discord"></i></a>
+            
+            <a href="https://instagram.com/spirithorde" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            
+            <a href="https://github.com/AvikDN" target="_blank"><i class="fa-brands fa-github"></i></a>
+            
+            <a href="mailto:avikdebnath2004@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <h1 class="giant-contact-text">CONTACT ME.</h1>
+</section>
+<div id="bottom-target" class="scroll-space"></div>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

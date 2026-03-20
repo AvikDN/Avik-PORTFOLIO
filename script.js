@@ -1,3 +1,4 @@
+
 // --- MENU SLIDE LOGIC ---
 const menuTrigger = document.getElementById('menuTrigger');
 const closeBtn = document.getElementById('closeBtn');
@@ -67,6 +68,37 @@ window.addEventListener("mousemove", (e) => {
       translateY(${  yValue * speedy }px)
     `;
   });
+});
+/* ==========================================
+   SIDE MENU LOGIC (OPEN, CLOSE, SCROLL)
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const menuTrigger = document.getElementById('menuTrigger');
+    const sideMenu = document.getElementById('sideMenu');
+    const closeBtn = document.getElementById('closeBtn');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    // 1. Open the menu when the targeting reticle is clicked
+    if (menuTrigger && sideMenu) {
+        menuTrigger.addEventListener('click', () => {
+            sideMenu.classList.add('open');
+        });
+    }
+
+    // 2. Close the menu when the 'X' is clicked
+    if (closeBtn && sideMenu) {
+        closeBtn.addEventListener('click', () => {
+            sideMenu.classList.remove('open');
+        });
+    }
+
+    // 3. Close the menu automatically when a link is clicked
+    menuLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Closes the menu
+            sideMenu.classList.remove('open');
+        });
+    });
 });
 // --- SCROLL REVEAL BARS (toggle on scroll up/down) ---
 const revealBars = document.getElementById('revealBars');
@@ -350,3 +382,27 @@ robotFace.addEventListener("mouseleave", () => {
 // Look for this line at the bottom of your JS and add the new class to the end!
 // Add .uiux-bento-section to the end of the list!
 const elementsToAnimate = document.querySelectorAll('.shape-container, .video-shape-wrapper, .showcase-section, .graphics-bento-section, .motion-bento-section, .uiux-bento-section');
+// _SENDING MAILBOX_//
+function sendmail(event) {
+    // 1. This completely stops the page from reloading!
+    event.preventDefault(); 
+
+    // 2. Grabs the values using the new IDs we just added to your HTML
+    const templateParams = {
+        name: document.querySelector("#name").value,
+        email: document.querySelector("#email").value,
+        message: document.querySelector("#message").value,
+    };
+
+    // 3. Sends the data to EmailJS
+    emailjs
+        .send("service_5v5g7up", "template_w50ewcc", templateParams)
+        .then(() => {
+            alert("Email sent successfully!");
+            document.getElementById("contact-form").reset(); // Clears the form!
+        })
+        .catch((error) => {
+            alert("Failed to send email. Please try again.");
+            console.log("EMAILJS ERROR:", error); 
+        });
+}

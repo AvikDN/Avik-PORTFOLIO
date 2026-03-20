@@ -71,7 +71,24 @@
         overflow-x: hidden;
         margin: 0;
     }
+    
+/* ==========================================
+   PERFORMANCE & 60FPS OPTIMIZATIONS
+   ========================================== */
 
+/* 1. Forces the GPU to handle the heavy lifting for all moving parts */
+.motion-item, 
+.bg-huge-title, 
+.social-icons a, 
+.return-up-btn,
+.tech-input {
+    /* Tells the browser "Hey, be ready to animate these specific properties!" */
+    will-change: transform, opacity; 
+    
+    /* Secret trick: Forces hardware acceleration and stops text from glitching/flickering during animations */
+    backface-visibility: hidden; 
+    transform: translateZ(0); 
+}
     /* CONTAINER FOR HERO PAGE */
     .hero-viewport {
         position: relative;
@@ -127,7 +144,7 @@
         width: calc(100% - 4vw);
         height: 96vh;
         margin: 2vh 2vw;
-        border: 1px solid var(--line-color);
+        border: 1px solid var(--neon-green, #C6FF4D);
         background: transparent;
     }
 
@@ -150,32 +167,101 @@
     /* Main Content Area */
     .main-content { flex: 1; display: flex; flex-direction: column; }
     .top-nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; border-bottom: 1px solid var(--line-color); }
-    .logo-box { font-family: "Bricolage Grotesque", sans-serif; width: 40px; height: 30px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+    .logo-box { font-family: "Create Future"; width: 40px; height: 30px;color: #d3d3d3 ;; display: flex; align-items: center; justify-content: center; font-size: 30px; }
     .nav-links { display: flex; gap: 30px; }
     .top-nav a { text-decoration: none; color: var(--text-main); font-family: var(--font-mono); font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; }
 
-    .aboutbtn {
-      background: linear-gradient(45deg, transparent 20px, #C6FF4D 20px);
-      border-radius: 2px 5px 2px 10px; 
-      color: #000000;
-      font-family: monospace, sans-serif;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 15px 40px;
-      border: none;
-      cursor: pointer;
-      display: flex; 
-      align-items: center;
-        background: transparent;
-    border: 1px solid var(--neon-green, #C6FF4D);
+/* ==========================================
+   THE "HIRE" TARGETING BUTTON
+   ========================================== */
+.hire-btn {
+    background: transparent;
+    border: 2px solid var(--neon-green, #C6FF4D);
     color: var(--neon-green, #C6FF4D);
     
+    
+    font-family:"Xirod" ; 
+    font-weight: 800; /* Makes the text nice and thick */
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    
+    padding: 12px 35px;
+    cursor: pointer;
+    
+    /* THE MAGIC SHAPE: Top-Left, Top-Right, Bottom-Right, Bottom-Left */
+    border-radius: 4px 4px 4px 10px; 
+    
     transition: all 0.3s ease;
-    }
-.aboutbtn:hover {
-    background: linear-gradient(45deg, transparent 20px, #C6FF4D 20px);
+}
+
+/* Optional Hover Effect: Fills with green and glows */
+.hire-btn:hover {
+    background: var(--neon-green, #C6FF4D);
     color: #000;
-    box-shadow: 0 0 15px rgba(198, 255, 77, 0.5); /* Glow effect */
+    box-shadow: 0 0 20px rgba(198, 255, 77, 0.4);
+    transform: translateY(-2px);
+}
+/* ==========================================
+   GLOBAL STICKY NAV (FLOATS OVER EVERYTHING)
+   ========================================== */
+.global-sticky-nav {
+    position: fixed; /* 📌 THIS is the magic word that freezes it on screen! */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 45px; /* Spacing from top and sides */
+    display: flex;
+    justify-content: space-between; /* Pushes Logo left, Menu right */
+    align-items: center;
+    
+    z-index: 9999; /* Forces it to sit on top of all images and videos */
+    pointer-events: none; /* Lets you click the background between them */
+}
+.global-sticky-nav #menuTrigger {
+    pointer-events: auto; 
+}
+/* --- THE TARGETING RETICLE MENU BUTTON --- */
+.global-sticky-nav #menuTrigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 45px;
+    height: 45px;
+    /* The color is set to white, but your mix-blend-mode will auto-invert it! */
+    color: #C6FF4D; 
+    outline: none;
+}
+
+/* Sizing the SVG container */
+.target-icon {
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* Allows the animation to expand slightly outside the box */
+}
+
+/* Setting up the smooth animation timing */
+.target-icon .bracket {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.target-icon .center-cross {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Forces it to rotate perfectly from the dead center of the 32x32 SVG */
+    transform-origin: 16px 16px; 
+}
+
+/* --- THE HOVER ANIMATIONS --- */
+
+/* 1. The corners push outward */
+#menuTrigger:hover .target-icon .tl { transform: translate(-2px, -2px); }
+#menuTrigger:hover .target-icon .tr { transform: translate(2px, -2px); }
+#menuTrigger:hover .target-icon .bl { transform: translate(-2px, 2px); }
+#menuTrigger:hover .target-icon .br { transform: translate(2px, 2px); }
+
+/* 2. The center cross rotates and scales up slightly like a camera focusing */
+#menuTrigger:hover .target-icon .center-cross {
+    transform: scale(1.2) rotate(90deg);
 }
     /* SLIDE-OUT MENU */
     .side-menu {
@@ -186,6 +272,7 @@
         max-width: 600px;
         height: 100vh;
         background-color: var(--menu-bg);
+        font-family: "QEHADEX";
         color: var(--white);
         z-index: 10000;
         padding: 40px 60px;
@@ -595,8 +682,7 @@ scale: 1;
     object-fit: cover; 
     display: block;
     
-    /* Optional: slightly dim the video to fit the dark UI theme */
-    opacity: 0.9;
+    
 }
 
 /* ==========================================
@@ -712,23 +798,10 @@ scale: 1;
     align-items: center;
     
     /* Slide up animation tied to scrolling */
-    animation: slideUpSection linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 20%;
-
-    z-index: 3;
+ 
 }
 
-@keyframes slideUpSection {
-    from {
-        opacity: 0;
-        transform: translateY(150px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 
 /* ==========================================
@@ -980,7 +1053,7 @@ mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
    MY SKILL MATRIX PAGE
    ========================================== */
 .skills-section {
-    position: sticky; /* FREEZES the section on screen */
+    position: relative; /* FREEZES the section on screen */
     top: 0;           /* Pins it perfectly to the top */
     z-index: 1;       /* Keeps it on the bottom layer */
     
@@ -1234,7 +1307,36 @@ mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
     margin-bottom: 15px;
     transition: all 0.3s ease; /* Adds the smooth fade */
 }
+/* ==========================================
+   INLINE SVG SKILL ICONS (PROFESSIONAL OUTLINES)
+   ========================================== */
+.skill-svg {
+    width: 2.8rem; 
+    height: 2.8rem;
+    color: #ffffff; /* Sets the base color for the lines */
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
 
+/* Forces the boxes and paths to be completely transparent/hollow */
+.skill-svg rect, 
+.skill-svg path, 
+.skill-svg circle {
+    fill: none !important;
+}
+
+/* Ensures the text inside the Adobe icons remains solid */
+.skill-svg text {
+    fill: currentColor !important;
+    stroke: none !important;
+}
+
+/* --- The Hover Glow Effect --- */
+.hex-cell:hover .skill-svg {
+    color: var(--neon-green, #C6FF4D); 
+    filter: drop-shadow(0 0 8px var(--neon-green, #C6FF4D));
+    transform: scale(1.1);
+}
 
 /* --- THE 'POWER LEVEL' BAR --- */
 .level-bar {
@@ -1301,6 +1403,7 @@ mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
 }
 html {
     scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 }
 .showcase-section, .skills-section {
     scroll-snap-align: start;
@@ -1308,23 +1411,29 @@ html {
 /* The giant background text */
 .bg-huge-title {
     position: absolute;
-    top: 10px; /* <--- CHANGED THIS: Lower number moves it higher! */
+    top: 10px; 
     left: 50%;
     transform: translateX(-50%);
     font-family: "Xirod", var(--font-sans);
     font-size: clamp(4rem, 15vw, 12rem);
-    color: rgba(214, 214, 213, 0.692);
+    color: rgb(204, 204, 203);
     letter-spacing: 10px;
     z-index: 0;
     pointer-events: none;
     white-space: nowrap;
-    /* --- ADD THESE 3 LINES --- */
     animation: fadeUpProjectText linear;
     animation-timeline: view();
-    /* Starts animating when 10% of the section is visible, finishes at 40% */
     animation-range: entry 10% cover 40%;
+    
+    /* 🟢 ADD THIS LINE: Controls the speed of the hover effect */
+    transition: letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s ease, text-shadow 0.5s ease;
 }
-
+/* --- GIANT BACKGROUND TITLE HOVER EFFECT --- */
+.showcase-section:hover .bg-huge-title {
+    /* Pushes the letters wide apart */
+    letter-spacing: 40px; 
+    
+}
 /* The Main Container Shape */
 .showcase-container {
     position: relative;
@@ -1395,16 +1504,10 @@ html {
     /* This adds a heavy black blur behind all the text to keep it readable */
     text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
-.logo-placeholder {
-    font-family: var(--font-mono);
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-}
+
 
 .project-title {
-    font-family: "Xirod", var(--font-sans);
+    font-family: "QEHADEX", var(--font-sans);
     font-size: clamp(2rem, 5vw, 4rem);
     color: #fff;
     margin-bottom: 20px;
@@ -1562,7 +1665,30 @@ html {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+/* --- THE BENTO POP-IN ANIMATION --- */
+.graphics-bento-section .bento-item {
+    /* Triggers the scroll animation */
+    animation: popFromCenter linear both;
+    animation-timeline: view();
+    
+    /* Starts popping in when 5% of the box enters the screen, and finishes at 30% */
+    animation-range: entry 5% cover 30%; 
+    
+    /* Ensures it pops exactly from the dead center of each box */
+    transform-origin: center; 
+}
 
+/* The Keyframes for the Animation */
+@keyframes popFromCenter {
+    0% {
+        opacity: 0;
+        scale: 0.3; /* Starts tiny */
+    }
+    100% {
+        opacity: 1;
+        scale: 1; /* Pops to full normal size */
+    }
+}
 /* Optional: Subtle hover pop on the boxes */
 .bento-item:hover {
     transform: translateY(-5px);
@@ -1864,16 +1990,33 @@ html {
 /* ==========================================
    UI/UX BENTO GRID
    ========================================== */
+/* This invisible block creates the scrolling space needed to pull the curtain up */
+.scroll-space {
+    height: 100vh; 
+    width: 100%;
+    pointer-events: none; /* Makes sure it doesn't block any clicks */
+}
+
+/* --- 2. THE UI/UX CURTAIN (SLIDES UP) --- */
 .uiux-bento-section {
-    position: relative;
+    position: relative; /* Back to normal so it scrolls up naturally */
+    z-index: 10;        /* Sits ON TOP of the contact section */
+    
+    /* 🪄 THE MAGIC: Pulls the contact section up to hide behind this one */
+    margin-bottom: -100vh; 
+    
+    /* The Sliced Bottom Edge */
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9); /* Heavy shadow pointing DOWN */
+    border-bottom: 1px solid rgba(198, 255, 77, 0.4);
     width: 100%;
     min-height: 100vh;
-    background-color: #050505; /* A slightly different dark grey to separate sections */
+    background-color: #050505; 
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 100px 5%;
-    z-index: 10;
 }
 
 /* The 4-Column Grid */
@@ -1993,4 +2136,271 @@ html {
         grid-row: auto !important;
         min-height: 200px;
     }
+}
+
+/* ==========================================
+   CONTACT SECTION STYLES
+   ========================================== */
+/* --- 3. THE CONTACT SECTION (REVEALED FROM BEHIND) --- */
+.contact-section {
+    position: sticky; /* Freezes on the screen while UI/UX slides up */
+    top: 0;
+    z-index: 1;       /* Hides BEHIND the UI/UX section */
+    height: 100vh;    /* Locks height to match the scroll trick */
+    
+    /* Resets any borders from the previous code */
+    border-radius: 0;
+    box-shadow: none;
+    
+    width: 100%;
+    background-color: #000; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 100px; 
+}
+
+/* --- THE BACKGROUNDS & ACCENTS --- */
+
+/* The Angular Neon Green Bottom Half */
+.contact-bg-green {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background-color: var(--neon-green, #C6FF4D);
+    z-index: -1;
+    
+    /* The Magic Cutout! Creates the techy dip in the middle */
+    clip-path: polygon(
+        0 0, 
+        calc(50% - 360px) 0, 
+        calc(50% - 320px) 60px, 
+        calc(50% + 320px) 60px, 
+        calc(50% + 360px) 0, 
+        100% 0, 
+        100% 100%, 
+        0 100%
+    );
+}
+
+/* The Procedural Checkerboards (No images needed!) */
+.checker-accent {
+    position: absolute;
+    background-image: conic-gradient(var(--neon-green, #C6FF4D) 90deg, #000 90deg 180deg, var(--neon-green, #C6FF4D) 180deg 270deg, #000 270deg);
+    background-size: 40px 40px; /* Makes perfect 20px squares */
+}
+.top-left-checker {
+    top: 10%;
+    left: 0;
+    width: 240px;
+    height: 80px; /* 2 rows high */
+}
+.bottom-right-checker {
+    bottom: 10%;
+    right: 0;
+    width: 240px;
+    height: 80px;
+}
+
+/* --- THE FOLDER FORM --- */
+
+.contact-form-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-top: -80px; /* Pulls it up to sit perfectly on the horizon line */
+    z-index: 5;
+}
+
+/* The Folder Tab at the top left */
+.folder-tab {
+    position: relative;
+    width: 220px;
+    height: 43px;
+    background-color: #fff;
+    border-radius: 15px 0 0 0;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+}
+/* Creates the slanted angle on the right side of the tab */
+.folder-tab::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -31px;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    transform-origin: bottom left;
+    transform: skewX(30deg);
+    border-radius: 0 10px 0 0;
+}
+
+.folder-tab h3 {
+    font-family: "Xirod", var(--font-mono);
+    font-size: 1rem;
+    color: #111;
+    z-index: 2; /* Keeps text above the slanted background */
+}
+
+/* The Main White Box */
+.folder-body {
+    background-color: #fff;
+    border-radius: 0 15px 15px 15px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* --- THE INPUT BOXES --- */
+.tech-input {
+    width: 100%;
+    background-color: #dcdcdc; /* The box background color */
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+    
+    /* 🟢 1. FORMAT THE TYPED TEXT HERE */
+    /* Swap "Xirod" to var(--font-mono) if you want a hacker/terminal look! */
+    font-family: var(--font-mono); 
+    font-size: 1rem;       /* Makes the typed text bigger */
+    font-weight: bold;     /* Makes the text thicker */
+    color: #000000;        /* The color of the text the user types */
+    letter-spacing: 1px;   /* Spaces the letters out slightly */
+}
+.tech-input::placeholder { color: #888; }
+.tech-input:focus { background-color: #e8e8e8; }
+
+.tech-textarea {
+    resize: none;
+    height: 120px;
+    margin-bottom: 10px;
+}
+/* ==========================================
+   FORM INPUT ICONS & ALIGNMENT
+   ========================================== */
+
+/* 1. The Container that holds both the input and the icon */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px; /* Spacing between the fields */
+}
+
+/* 2. Remove bottom margin from inputs (the wrapper handles it now), 
+      and push the text to the right so it doesn't type over the icon! */
+.input-wrapper .tech-input {
+    margin-bottom: 0; 
+    padding-left: 50px; 
+}
+
+/* 3. The Base Icon Style */
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 17px; /* Centers it perfectly with your input height */
+    width: 20px;
+    height: 20px;
+    color: #777777; /* Matches your placeholder text color */
+    pointer-events: none; /* Lets the user click "through" the icon into the box */
+    transition: all 0.3s ease;
+}
+
+/* 4. The Message Icon (Needs to sit at the top, not the middle of the big box) */
+.input-icon.msg-icon {
+    top: 18px; 
+}
+
+/* 5. 🟢 THE CYBERPUNK MAGIC: Icons glow green when you click the box! */
+.input-wrapper:focus-within .input-icon {
+    color: var(--neon-green, #C6FF4D);
+    filter: drop-shadow(0 0 5px var(--neon-green, #C6FF4D));
+    transform: scale(1.1); /* Slight pop-out effect */
+}
+/* The Floating Submit Button */
+.submit-btn {
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    background-color: var(--neon-green, #C6FF4D);
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-family: "Xirod", var(--font-mono);
+    font-size: 1.2rem;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.submit-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    background-color: #d1ff6b; /* Slightly brighter green on hover */
+}
+
+/* --- THE FOOTER / SOCIALS --- */
+
+.social-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 100px;
+    z-index: 5;
+}
+
+.social-label {
+    font-family: "Xirod", var(--font-mono);
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+    /* The thin black lines sandwiching the icons */
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 15px 0;
+}
+
+.social-icons a {
+    color: #000;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icons a:hover {
+    transform: translateY(-3px);
+    color: #202020; /* Icons turn white on hover for contrast */
+}
+
+/* Giant Bottom Text */
+.giant-contact-text {
+    position: absolute;
+    bottom: -15px; /* Pulls it down so it slightly clips off the bottom edge */
+    left: 20px;
+    font-family: "Xirod", var(--font-sans);
+    font-size: clamp(4rem, 10vw, 8rem);
+    color: #000;
+    line-height: 1;
+    z-index: 1;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .contact-bg-green {
+        /* Simplifies the background cutout for small screens */
+        clip-path: polygon(0 0, 10% 0, 20% 40px, 80% 40px, 90% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .folder-body { padding: 30px 20px; }
+    .submit-btn { right: 0; bottom: -25px; } /* Pulls button in so it doesn't break mobile layout */
+    .social-footer { flex-direction: column; gap: 10px; margin-top: 80px; }
+    .giant-contact-text { font-size: 3.5rem; bottom: 0; }
 }
