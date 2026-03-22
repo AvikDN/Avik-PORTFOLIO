@@ -2521,6 +2521,7 @@ html {
     color: #777777; /* Matches your placeholder text color */
     pointer-events: none; /* Lets the user click "through" the icon into the box */
     transition: all 0.3s ease;
+    z-index: 2;
 }
 
 /* 4. The Message Icon (Needs to sit at the top, not the middle of the big box) */
