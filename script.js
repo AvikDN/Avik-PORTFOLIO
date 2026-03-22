@@ -1,4 +1,59 @@
+/* ==========================================
+   LDR LOADING SCREEN LOGIC
+   ========================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("ldr-loader");
+    const slot1 = document.getElementById("slot-1");
+    const slot2 = document.getElementById("slot-2");
+    const slot3 = document.getElementById("slot-3");
 
+    // The random icons that will flash on the screen
+    const flashIcons = [
+        "fa-bolt", "fa-skull", "fa-crosshairs", "fa-fire", 
+        "fa-eye", "fa-bug", "fa-power-off", "fa-microchip", "fa-terminal"
+    ];
+
+    // The 3 final icons that represent you
+    const finalIcon1 = "fa-code";    // Coding
+    const finalIcon2 = "fa-gamepad"; // Gaming
+    const finalIcon3 = "fa-robot";   // Cyberpunk
+
+    // Helper function to get a random icon
+    function getRandomIcon() {
+        return flashIcons[Math.floor(Math.random() * flashIcons.length)];
+    }
+
+    // The Rapid Flashing Engine
+    let interval = setInterval(() => {
+        // Keeps swapping classes to create the rapid flash effect
+        slot1.className = `slot-icon fa-solid ${getRandomIcon()}`;
+        slot2.className = `slot-icon fa-solid ${getRandomIcon()}`;
+        slot3.className = `slot-icon fa-solid ${getRandomIcon()}`;
+    }, 60); // Speed of the flashing (60ms is fast and aggressive)
+
+    // Sequence the lock-ins!
+    setTimeout(() => {
+        // Lock Slot 1
+        slot1.className = `slot-icon fa-solid ${finalIcon1} locked`;
+    }, 1000); // Stops after 1 second
+
+    setTimeout(() => {
+        // Lock Slot 2
+        slot2.className = `slot-icon fa-solid ${finalIcon2} locked`;
+    }, 1500); // Stops after 1.5 seconds
+
+    setTimeout(() => {
+        // Lock Slot 3 and stop the interval engine
+        clearInterval(interval);
+        slot3.className = `slot-icon fa-solid ${finalIcon3} locked`;
+    }, 2000); // Stops after 2 seconds
+
+    // Slide the whole screen away and unlock the website
+    setTimeout(() => {
+        loader.classList.add("slide-away");
+        document.body.classList.remove("loading"); // Allows scrolling again!
+    }, 2800); // Triggers shortly after the last icon locks in
+});
 // --- MENU SLIDE LOGIC ---
 const menuTrigger = document.getElementById('menuTrigger');
 const closeBtn = document.getElementById('closeBtn');
@@ -376,7 +431,30 @@ robotFace.addEventListener("mouseleave", () => {
   });
 });
 // ROBOT_______//
-
+/* ==========================================
+   DYNAMIC "VIEW ALL DESIGNS" BUTTON
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const viewAllBtn = document.querySelector('.view-all-btn');
+    
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', () => {
+            // 1. Find whichever card is currently selected/active
+            const activeCard = document.querySelector('.showcase-card.active');
+            
+            if (activeCard) {
+                // 2. Read the target ID we added to that card
+                const targetId = activeCard.getAttribute('data-target');
+                const targetSection = document.querySelector(targetId);
+                
+                // 3. Glide smoothly to that specific section!
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
+});
 
 
 // Look for this line at the bottom of your JS and add the new class to the end!

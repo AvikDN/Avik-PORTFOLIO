@@ -24,9 +24,23 @@
 
 </head>
 <body>
+  
+<div id="ldr-loader">
+        <div class="slot-machine">
+            <i class="slot-icon fa-solid fa-bolt" id="slot-1"></i>
+            <i class="slot-icon fa-solid fa-bolt" id="slot-2"></i>
+            <i class="slot-icon fa-solid fa-bolt" id="slot-3"></i>
+        </div>
+        <div class="loading-text">SYSTEM INITIALIZING...</div>
+    </div>
 
   <!-- PAGE 1: HERO VIEWPORT (SCROLLS AWAY) -->
   <div class="hero-viewport">
+    <div class="parallax neon-sign">
+            <span>Hover</span><br>
+            <span>to the</span><br>
+            <span>World</span>
+        </div>
       <section class="parallax-scene" id="home">
         <div class="vignette"></div>
         <img src="Img/background.png" data-speedx="0.05" data-speedy="0.01" class="parallax bg" alt="bg">
@@ -37,6 +51,7 @@
         <img src="Img/PORTFOLIO.png" data-speedx="0.08" data-speedy="0.05" class="parallax text" alt="building4">
         <img src="Img/buiild4.png" data-speedx="0.08" data-speedy="0.03" class="parallax b4" alt="building5">
         <img src="Img/buiild5.png" data-speedx="0.1" data-speedy="0.01" class="parallax b5" alt="building6">
+        
       </section>
 
       <div class="layout-wrapper">
@@ -138,8 +153,11 @@
     <div class="hero-border-wrap">
         <div class="hero-inner">
             <div class="text-center font-mono">
-              
-         <img src="Img/Profile carde.png" alt="Profile" class="hero-img parallax" data-speedx="0.03" data-speedy="0.03">
+             
+         <img src="Img/Profile carde.png" alt="Profile" class="hero-img parallax" data-speedx="0.01" data-speedy="0.01">
+         <img src="Img/Avik_pic2.png" alt="Profile" class="hero-img parallax" data-speedx="0.03" data-speedy="0.03"> 
+         
+
         </div>
     </div>
 </div>
@@ -429,34 +447,33 @@
           </div>
         </div>
 
-        <div class="cards-row">
+<div class="cards-row">
           
           <div class="showcase-card active" 
                data-bg="Img/adventure time.com_wallpaper.jpg" 
                data-title="GRAPHICS DESIGN" 
                data-category="poster"
-               data-desc="A deep dive into neo-noir aesthetics and interactive web environments. Exploring the intersection of design and immersive scrolling.">
-            <img src="Img/adventure time.com_wallpaper.jpg" alt="Project 1">
+               data-desc="A deep dive into neo-noir aesthetics and interactive web environments."
+               data-target="#graphics"> <img src="Img/adventure time.com_wallpaper.jpg" alt="Project 1">
           </div>
 
           <div class="showcase-card" 
                data-bg="Img/sky.com_wallpaper.jpg" 
                data-title="MOTION GRAPHICS" 
                data-category="3d_Character"
-               data-desc="Retro-inspired pixel art environments featuring cyberpunk cityscapes and isometric room designs.">
-            <img src="Img/sky.com_wallpaper.jpg" alt="Project 2">
+               data-desc="Retro-inspired pixel art environments featuring cyberpunk cityscapes."
+               data-target="#motion"> <img src="Img/sky.com_wallpaper.jpg" alt="Project 2">
           </div>
 
           <div class="showcase-card" 
                data-bg="Img/Screenshot 2026-02-19 024230.png" 
                data-title="UI/UX" 
                data-category="SYSTEM INIT"
-               data-desc="Custom interface design featuring complex clip-paths, glassmorphism, and dynamic JavaScript interactions.">
-            <img src="Img/Screenshot 2026-02-19 024230.png" alt="Project 3">
+               data-desc="Custom interface design featuring complex clip-paths, glassmorphism."
+               data-target="#uiux"> <img src="Img/Screenshot 2026-02-19 024230.png" alt="Project 3">
           </div>
 
         </div>
-
         <div class="bottom-actions">
           
           <button class="view-all-btn">VIEW ALL DESIGNS</button>
@@ -465,7 +482,7 @@
       </div>
     </div>
 </section>
-<section class="graphics-bento-section">
+<section class="graphics-bento-section" id="graphics">
     <div class="bento-grid">
         
         <div class="bento-item bento-1">
@@ -501,7 +518,7 @@
     </div>
 </section>
 
-<section class="motion-bento-section">
+<section class="motion-bento-section" id="motion">
     <div class="bento-grid-motion">
 
         <div class="motion-item motion-1">
@@ -534,7 +551,7 @@
     </div>
 </section>
 
-<section class="uiux-bento-section">
+<section class="uiux-bento-section" id="uiux">
     <div class="bento-grid-uiux">
 
         <div class="uiux-item uiux-1">
@@ -565,6 +582,10 @@
 </section>
 
 <section class="contact-section" id="contact">
+
+<div class="cyber-grid-overlay"></div>
+    <div class="jumping-blocks"></div>
+
     <div class="checker-accent top-left-checker"></div>
     <div class="checker-accent bottom-right-checker"></div>
 
@@ -622,9 +643,16 @@
         </div>
     </div>
 
-    <h1 class="giant-contact-text">CONTACT ME.</h1>
-</section>
-<div id="bottom-target" class="scroll-space"></div>
+<h1 class="giant-contact-text">CONTACT ME.</h1>
+    
+    <div class="site-footer">
+        <p class="footer-text">© 2026 <span>AVIK</span>. ALL SYSTEM RIGHTS RESERVED.</p>
+        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            [ SYS_REBOOT ]
+        </button>
+    </div>
+
+</section> <div id="bottom-target" class="scroll-space"></div>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
