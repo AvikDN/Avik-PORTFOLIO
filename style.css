@@ -391,7 +391,68 @@ body.loading {
         transform: translateX(15px); padding-left: 30px; 
     }
     .page-num { font-size: 12px; margin-left: 15px; font-family: var(--font-mono); opacity: 0; transform: translateX(-10px); transition: all 0.4s ease; }
+/* --- 1. HERO PAGE (1ST PAGE) MOBILE FIXES --- */
 
+@media (max-width: 1024px) {
+    /* Slightly shrinks the giant text for tablets */
+    .parallax.text { width: 800px; left: calc(50% - 200px); }
+}
+
+@media (max-width: 768px) {
+    /* 1. Reset the Parallax Zoom so the background fills the screen */
+    .parallax-scene { 
+        transform: scale(1); 
+    }
+    
+    /* 2. Make the background image stretch properly */
+    .parallax.bg {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    /* 3. Resize the giant PORTFOLIO text to fit the phone screen */
+    .parallax.text { 
+        width: 90vw; /* Takes up 90% of the screen width */
+        left: 50%;   /* Centers it perfectly */
+        top: 40%;
+    }
+
+    /* 4. Hide some extra floating buildings on mobile to reduce clutter */
+    .parallax.b1, .parallax.b4 {
+        display: none;
+    }
+
+    /* 5. Fix the sidebar: Hide decorations, but keep the menu button alive! */
+    .sidebar {
+        width: 0; 
+        border-right: none;
+        position: absolute; /* Takes it out of the layout flow so it doesn't squish your page */
+    }
+    
+    .scroll-indicator, .bottom-dots {
+        display: none; /* Hides the crosshair and dots on mobile */
+    }
+
+    /* Move the menu button a little closer to the corner for phone screens */
+    .global-sticky-nav {
+        padding: 20px 25px; 
+    }
+
+    /* 6. Remove the green border box and let content fill the screen */
+    .layout-wrapper {
+        margin: 0;
+        width: 100%;
+        border: none;
+    }
+
+    /* 7. Put the Logo and HIRE button side-by-side again */
+    .top-nav { 
+        flex-direction: row; 
+        justify-content: space-between;
+        padding: 20px 25px; 
+    }
+}
     /* ==========================================
        MYSELF SECTION (WITH CUSTOM SHAPE)
        ==========================*/
@@ -751,6 +812,78 @@ scale: 0.5;
 opacity: 1;
 scale: 1;
 }
+}
+/* --- 2. MYSHELF SECTION STACKING FIX --- */
+@media (max-width: 900px) {
+    .shape-container {
+        /* 1. 🟢 THE CURE: Turn off the complex folder shape on mobile! */
+        clip-path: none !important; 
+        -webkit-clip-path: none !important;
+        
+        /* 2. Give it the clean, rounded corners from your image */
+        border-radius: 20px; 
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle tech border */
+        
+        /* 3. Let the box grow naturally to fit the content */
+        aspect-ratio: auto; 
+        height: auto;
+        min-height: auto; 
+        
+        /* 4. Normal, balanced padding now that the danger zones are gone */
+        padding: 60px 20px 80px 20px; 
+    }
+    
+    .shape-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px; /* Space between text and image */
+        align-items: center; 
+    }
+    
+    .left-col {
+        align-items: center; 
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* 5. 🟢 Brings "HEY I'M" back and makes it visible! */
+    .shape-content h1 {
+        display: block;
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        color: #fff;
+        margin-bottom: 5px;
+    }
+
+    /* 6. Makes AVIK massive and strictly horizontal */
+    .shape-content h2 {
+        display: block;
+        font-size: clamp(3rem, 15vw, 5rem); 
+        white-space: nowrap; 
+        margin-bottom: 25px;
+        transform: translateX(0); /* Centers it perfectly */
+    }
+    
+    .shape-content p {
+        font-size: 0.85rem; 
+        padding: 0 10px; 
+        line-height: 1.6;
+    }
+
+    /* 7. 🟢 Gives your Profile Image massive space! */
+    .hero-border-wrap {
+        width: 100%;
+        max-width: 320px; /* Much bigger than before */
+        height: 350px;    /* Nice and tall */
+        min-height: auto;
+        margin: 0 auto;
+    }
+    
+    /* Moves the triangle logo to sit cleanly in the corner */
+    .corner-graphic {
+        bottom: 20px;
+        right: 20px;
+        width: 70px;
+    }
 }
 /* ==========================================
    VIDEO SHAPE SECTION
@@ -1253,20 +1386,7 @@ mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
 .skills-column.align-right .skill-item {
     width: 110px; /* Keeps the hexagons a consistent size */
 }
-/* On mobile, reset it back to center */
-@media (max-width: 1200px) {
-    .skills-column.align-right .category-label {
-        align-self: center;
-        text-align: center;
-        border-right: none;
-        border-bottom: 2px solid var(--neon-green, #C6FF4D);
-        padding-right: 0;
-        padding-bottom: 5px;
-    }
-    .skills-column.align-right .hex-grid { 
-        justify-content: center; 
-    }
-}
+
 
 /* --- THE MATRIX LAYOUT --- */
 .skills-matrix {
@@ -1481,26 +1601,52 @@ mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 1024px) {
+    /* On mobile, reset it back to center */
+
+    .skills-column.align-right .category-label {
+        align-self: center;
+        text-align: center;
+        border-right: none;
+        border-bottom: 2px solid var(--neon-green, #C6FF4D);
+        padding-right: 0;
+        padding-bottom: 5px;
+    }
+    .skills-column.align-right .hex-grid { 
+        justify-content: center; 
+    }
+
     .hex-grid {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        /* 🟢 CHANGED: Dropped from 130px to 100px so the hexagons scale down beautifully on tablets */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         gap: 15px;
     }
-    .skill-icon {
-        font-size: 2.5rem;
-    }
-    .skill-name {
-        font-size: 0.8rem;
-    }
-   .skills-content-wrapper {
-        grid-template-columns: 1fr; /* Turns back into 1 single column */
-        gap: 80px;
+    
+    /* Shrinks the icons and text slightly to fit the new 100px size */
+    .skill-icon, .skill-svg, .custom-img-icon {
+        font-size: 2rem; /* Dropped from 2.5rem */
+        width: 2rem;
+        height: 2rem;
     }
     
-    /* Center the robot when it's stacked */
+    .skill-name {
+        font-size: 0.7rem; /* Dropped from 0.8rem */
+    }
+    
+    .skills-content-wrapper {
+        grid-template-columns: 1fr; /* Turns back into 1 single column */
+        gap: 60px; /* 🟢 Reduced from 80px to close up awkward empty space */
+    }
+    
+    /* Center the robot when it's stacked AND adjust its size */
     .robot-wrapper {
         justify-self: center;
+        margin: 0 auto;
+        /* 🟢 ADDED: This mathematically shrinks the robot to 85% of its original size! */
+        transform: scale(0.85); 
+        display: none;
     }
 }
+
 /* ==========================================
    PROJECTS LAYOUT & PANELS
    ========================================== */
@@ -2633,6 +2779,69 @@ html {
     }
 }
 /* ==========================================
+   CONTACT SECTION MOBILE FIX
+   ========================================== */
+@media (max-width: 900px) {
+    /* 1. 🟢 Shrink top checker, entirely hide the bottom one! */
+    .top-left-checker {
+        width: 120px;
+        height: 40px;
+        background-size: 20px 20px; 
+    }
+    .bottom-right-checker {
+        display: none !important; /* Nukes it from orbit on mobile */
+    }
+
+    /* 2. 🟢 Pull the form up slightly to make more room at the bottom */
+  /* 2. 🟢 Pull the form UP a bit more to create a larger gap at the bottom */
+    .contact-form-container {
+        width: 92%; 
+        margin-top: -100px; /* Pulls the white box higher up the screen */
+    }
+    .folder-body {
+        padding: 25px 20px 35px 20px; 
+    }
+    .submit-btn {
+        right: 20px; 
+        bottom: -20px;
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+
+/* 3. 🟢 Push the Socials DOWN into the green gap you circled */
+    .social-footer {
+        left: 50%;
+        transform: translateX(-50%);
+        
+        /* 🪄 THE FIX: Changed from 220px to 160px so it sits lower! */
+        bottom: 160px; 
+        
+        width: 100%;
+        justify-content: center;
+        margin-top: 0;
+        z-index: 10;
+    }
+    
+    .social-label {
+        display: none; 
+    }
+    .social-icons {
+        border: none; 
+        padding: 0;
+        gap: 25px; /* Spaces the icons nicely */
+    }
+
+    /* 4. 🟢 Keep Giant Text safely at the bottom, above the footer */
+    .giant-contact-text {
+        font-size: clamp(2.8rem, 14vw, 4rem); 
+        bottom: 70px; 
+        left: 50%;
+        transform: translateX(-50%); 
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ==========================================
    FROSTED GLASS CYBER FOOTER
    ========================================== */
 .site-footer {
@@ -2659,7 +2868,7 @@ html {
 /* The Copyright Text */
 .footer-text {
     font-family: var(--font-mono);
-    color: #888888;
+    color: #ffffff;
     font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
