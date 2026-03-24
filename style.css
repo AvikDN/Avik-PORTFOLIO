@@ -1851,7 +1851,7 @@ html {
 
 .showcase-card.active {
     opacity: 1;
-    border: 2px solid #E63946; /* Highlights the active card */
+    border: 2px solid #C6FF4D; /* Highlights the active card */
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
