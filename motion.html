@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIK | Motion Graphics</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body style="background-color: #050505; color: #fff;">
+
+    <nav class="subpage-nav">
+        <button class="return-btn" onclick="window.location.href='index.html'">
+            <span class="arrow">❮</span>RETURN
+        </button>
+        <h1 class="subpage-title">MOTION_GRAPHICS</h1>
+    </nav>
+
+    <main class="gallery-container">
+        
+        <div class="gallery-item" data-video="Vids/Circle Rotation.mp4">
+            <video src="Vids/Circle Rotation.mp4" autoplay muted loop playsinline></video>
+            <div class="overlay-info">NEON CITY LOOP</div>
+        </div>
+
+        <div class="gallery-item" data-video="Vids/3d_Character.mp4">
+            <video src="Vids/3d_Character.mp4" autoplay muted loop playsinline></video>
+            <div class="overlay-info">3D CHARACTER RIG</div>
+        </div>
+        
+        <div class="gallery-item" data-video="Vids/Dynamic Text Animation.mp4">
+            <video src="Vids/Dynamic Text Animation.mp4" autoplay muted loop playsinline></video>
+            <div class="overlay-info">KINETIC TYPOGRAPHY</div>
+        </div>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Full Screen">
+        
+        <video class="lightbox-video" id="lightbox-video" controls playsinline></video>
+        
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script src="gallery.js"></script>
+
+</body>
+</html>

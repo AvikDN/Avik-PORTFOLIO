@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIK | UI/UX Design</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body style="background-color: #050505; color: #fff;">
+
+    <nav class="subpage-nav">
+        <button class="return-btn" onclick="window.location.href='index.html'">
+            <span class="arrow">❮</span>RETURN
+        </button>
+        <h1 class="subpage-title">UI/UX DESIGN</h1>
+    </nav>
+
+    <main class="gallery-container">
+        
+        <div class="gallery-item">
+            <img src="Img/cyberpunk web.webp" loading="lazy" alt="UI/UX Project 1">
+            <div class="overlay-info">CYBERPUNK WEB APP</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="Img/Screenshot 2026-02-19 024230.webp" loading="lazy" alt="UI/UX Project 2">
+            <div class="overlay-info">Genshin INTERFACE</div>
+        </div>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+     
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Full Screen">    
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script src="gallery.js"></script>
+
+</body>
+</html>
